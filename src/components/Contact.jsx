@@ -47,7 +47,7 @@ export default function Contact() {
     }
   }, [isSuccess]);
 
-  const handleChange = (e) => {
+  const handleInputChange = (e) => {
     let { name, value } = e.target;
     
     // Si el campo es nombre, no permitimos números
@@ -55,10 +55,10 @@ export default function Contact() {
       value = value.replace(/[0-9]/g, '');
     }
 
-    setFormData({ ...formData, [name]: value });
+    setFormData(prev => ({ ...prev, [name]: value }));
     
     if (errors[name]) {
-      setErrors({ ...errors, [name]: null });
+      setErrors(prev => ({ ...prev, [name]: null }));
     }
   };
 
@@ -148,7 +148,7 @@ export default function Contact() {
                     type="text" 
                     name="name"
                     value={formData.name}
-                    onChange={handleChange}
+                    onChange={handleInputChange}
                     className={`w-full px-4 py-3 rounded-xl bg-gray-50 text-gray-900 border ${errors.name ? 'border-red-500' : 'border-gray-200'} focus:outline-none focus:ring-2 focus:ring-[#3084ff] transition-all`} 
                     placeholder="Juan Pérez" 
                   />
@@ -160,7 +160,7 @@ export default function Contact() {
                     type="email" 
                     name="email"
                     value={formData.email}
-                    onChange={handleChange}
+                    onChange={handleInputChange}
                     className={`w-full px-4 py-3 rounded-xl bg-gray-50 text-gray-900 border ${errors.email ? 'border-red-500' : 'border-gray-200'} focus:outline-none focus:ring-2 focus:ring-[#3084ff] transition-all`} 
                     placeholder="juan@ejemplo.com" 
                   />
@@ -173,7 +173,7 @@ export default function Contact() {
                   rows="4" 
                   name="message"
                   value={formData.message}
-                  onChange={handleChange}
+                  onChange={handleInputChange}
                   className={`w-full px-4 py-3 rounded-xl bg-gray-50 text-gray-900 border ${errors.message ? 'border-red-500' : 'border-gray-200'} focus:outline-none focus:ring-2 focus:ring-[#3084ff] transition-all`} 
                   placeholder="Cuéntanos sobre tu proyecto..."
                 ></textarea>
@@ -184,7 +184,7 @@ export default function Contact() {
                   <>
                     <div className="absolute w-[200%] h-[800%] bg-[conic-gradient(from_0deg,transparent_0%,transparent_50%,#3084ff_100%)] animate-[spin_1.5s_linear_infinite] -z-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
                     <div className="absolute inset-[2px] bg-[#000047] rounded-[10px] -z-10"></div>
-                    <span className="relative z-10 flex items-center gap-2">Procesando...</span>
+                    <span className="relative z-10 flex items-center gap-2">Procesando…</span>
                   </>
                 ) : (
                   <>

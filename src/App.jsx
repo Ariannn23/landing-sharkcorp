@@ -23,7 +23,7 @@ function App() {
     window.scrollTo(0, 0);
     
     // Fallback con un pequeño timeout para cuando React termine de montar todo
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     }, 100);
 
@@ -31,6 +31,8 @@ function App() {
     window.onbeforeunload = function () {
       window.scrollTo(0, 0);
     };
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (

@@ -10,8 +10,8 @@ export default function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll, { passive: true });
   }, []);
 
   const navLinks = [
@@ -31,7 +31,7 @@ export default function Navbar() {
               <img src={logo} alt="SHARKCORP" className="w-12 h-12 md:w-14 md:h-14 object-contain" /> SHARKCORP
             </a>
           </div>
-          <div className="hidden md:flex space-x-8 items-center">
+          <div className="hidden md:flex gap-x-8 items-center">
             {navLinks.map((link) => (
               <a key={link.name} href={link.href} className="text-gray-200 hover:text-white hover:scale-110 transition-all duration-300 text-base font-semibold cursor-pointer inline-block tracking-wide">
                 {link.name}
