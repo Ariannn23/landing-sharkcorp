@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-shark-navy: #000080;
+  --color-shark-brand: #000047;
+  --color-shark-celeste: #3084ff;
+  --color-shark-light: #1a1a99;
+  --color-shark-dark: #00004d;
+  --color-shark-gray: #f5f7fa;
+  --font-sans: "Poppins", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-slate-800 font-sans antialiased overflow-x-hidden;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+  background: #000080; 
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00004d; 
+}
