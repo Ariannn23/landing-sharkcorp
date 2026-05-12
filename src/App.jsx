@@ -14,14 +14,27 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Evitar que el navegador restaure el scroll
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual';
     }
+    
+    // Forzar scroll arriba al cargar
     window.scrollTo(0, 0);
+    
+    // Fallback con un pequeño timeout para cuando React termine de montar todo
+    setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }, 100);
+
+    // Asegurar que si el usuario recarga, el navegador sepa que va arriba
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    };
   }, []);
 
   return (
-    <div className="font-sans antialiased text-slate-800 bg-white">
+    <div className="font-sans antialiased text-slate-800 bg-white overflow-x-hidden w-full">
       {loading && <Loader onComplete={() => setLoading(false)} />}
       <Navbar />
       <main>

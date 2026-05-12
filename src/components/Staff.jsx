@@ -34,13 +34,13 @@ export default function Staff() {
           scale: 1,
           rotationX: 0,
           opacity: 1,
-          duration: 1.5,
+          duration: 0.7,
           ease: "back.out(1.5)",
           scrollTrigger: {
             trigger: card,
             start: "top 85%",
           },
-          delay: index * 0.2
+          delay: index * 0.1
         }
       );
     });
