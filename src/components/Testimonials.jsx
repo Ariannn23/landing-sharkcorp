@@ -30,7 +30,7 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden" ref={sectionRef}>
+    <section id="testimonios" className="py-24 bg-white relative overflow-hidden" ref={sectionRef}>
       {/* Animated background bubbles */}
       <div className="absolute top-0 left-10 w-96 h-96 bg-[#3084ff] rounded-full mix-blend-multiply filter blur-[120px] opacity-10 animate-[pulse_6s_infinite]"></div>
       <div className="absolute bottom-0 right-10 w-96 h-96 bg-[#000047] rounded-full mix-blend-multiply filter blur-[120px] opacity-10 animate-[pulse_8s_infinite]"></div>
