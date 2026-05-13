@@ -107,11 +107,6 @@ export default function Hero() {
               tu futuro digital
             </span>
           </h1>
-
-          <p ref={subtextRef} className="text-xl md:text-2xl text-blue-100/90 mb-10 max-w-2xl font-light leading-relaxed">
-            En <strong className="text-white font-bold tracking-wide">SHARKCORP</strong>, transformamos ideas audaces en soluciones de software escalables y modernas. Somos la startup que impulsará tu próximo gran paso.
-          </p>
-
           <div ref={btnRef} className="flex flex-col sm:flex-row gap-4">
             <a
               href="#servicios"
