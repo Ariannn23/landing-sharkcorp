@@ -48,15 +48,7 @@ function MatrixRain() {
     };
 
     setDimensions();
-    
-    // Use ResizeObserver for better height tracking
-    const resizeObserver = new ResizeObserver(() => {
-      setDimensions();
-    });
-    
-    if (canvas.parentElement) {
-      resizeObserver.observe(canvas.parentElement);
-    }
+    window.addEventListener("resize", setDimensions);
 
     const letters = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ</>{}[]".split("");
     const fontSize = 16;
@@ -91,7 +83,7 @@ function MatrixRain() {
 
     return () => {
       clearInterval(interval);
-      resizeObserver.disconnect();
+      window.removeEventListener("resize", setDimensions);
     };
   }, []);
 
