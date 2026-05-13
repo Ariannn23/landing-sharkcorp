@@ -18,6 +18,11 @@ function App() {
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual';
     }
+
+    // Limpiar el hash de la URL para que no se quede en la sección anterior
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname);
+    }
     
     // Forzar scroll arriba al cargar
     window.scrollTo(0, 0);
