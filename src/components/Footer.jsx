@@ -1,5 +1,5 @@
 import { Code2, MessageCircle, Briefcase, Camera } from 'lucide-react';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo4.png';
 
 export default function Footer() {
   return (
